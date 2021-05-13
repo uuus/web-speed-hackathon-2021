@@ -30,7 +30,6 @@
     "regenerator-runtime": "^0.13.7",
     "standardized-audio-context": "^25.1.15",
     "tailwindcss": "^2.1.2",
-    "terser-webpack-plugin": "^5.1.2",
     "wicg-inert": "^3.1.1"
   },
   "devDependencies": {
@@ -55,6 +54,7 @@
     "postcss-preset-env": "^6.7.0",
     "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.2",
     "webpack": "^5.35.1",
     "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.6.0",
