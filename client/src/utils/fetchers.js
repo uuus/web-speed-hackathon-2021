@@ -8,6 +8,9 @@ async function fetchBinary(url) {
   const result = await fetch(url, {
     method: 'GET',
   });
+  if (!result.ok) {
+    return null
+  }
   return result.arrayBuffer();
 }
 
@@ -20,6 +23,9 @@ async function fetchJSON(url) {
   const result = await fetch(url, {
     method: 'GET',
   });
+  if (!result.ok) {
+    return null
+  }
   return result.json();
 }
 
@@ -37,6 +43,9 @@ async function sendFile(url, file) {
     },
     body: file
   });
+  if (!result.ok) {
+    return null
+  }
   return result.json();
 }
 
@@ -58,6 +67,9 @@ async function sendJSON(url, data) {
     },
     body: compressed
   });
+  if (!result.ok) {
+    return null
+  }
   return result.json();
 }
 
