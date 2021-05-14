@@ -17,14 +17,10 @@ async function fetchBinary(url) {
  * @returns {Promise<T>}
  */
 async function fetchJSON(url) {
-  try {
-    const result = await fetch(url, {
-      method: 'GET',
-    });
-    return result.json();
-  } catch {
-    return null;
-  }
+  const result = await fetch(url, {
+    method: 'GET',
+  });
+  return result.json();
 }
 
 /**
