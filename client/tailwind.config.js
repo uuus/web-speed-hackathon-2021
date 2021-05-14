@@ -1,4 +1,8 @@
 module.exports = {
   darkMode: false,
-  purge: ['./src/**/!(*.d).{ts,js,jsx,tsx}']
+  purge: {
+    enabled: true,
+    content: ['./src/**/!(*.d).{ts,js,jsx,tsx}'],
+    fontFace: true,
+  }
 };

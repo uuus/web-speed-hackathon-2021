@@ -10,7 +10,7 @@ module.exports = {
     [
       '@babel/preset-react',
       {
-        development: process.env.NODE_ENV === 'development',
+        development: false,
       },
     ],
   ],

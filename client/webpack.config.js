@@ -10,6 +10,7 @@ const UPLOAD_PATH = path.resolve(__dirname, '../upload');
 const DIST_PATH = path.resolve(__dirname, '../dist');
 
 const TerserPlugin = require("terser-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 /** @type {import('webpack').Configuration} */
 const config = {
@@ -27,7 +28,6 @@ const config = {
     main: [
       'core-js',
       'regenerator-runtime/runtime',
-      'jquery-binarytransport',
       path.resolve(SRC_PATH, './index.css'),
       path.resolve(SRC_PATH, './buildinfo.js'),
       path.resolve(SRC_PATH, './index.jsx'),
@@ -75,10 +75,8 @@ const config = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: 'jquery',
       AudioContext: ['standardized-audio-context', 'AudioContext'],
       Buffer: ['buffer', 'Buffer'],
-      'window.jQuery': 'jquery',
     }),
     new webpack.EnvironmentPlugin({
       BUILD_DATE: new Date().toISOString(),
@@ -93,6 +91,8 @@ const config = {
       inject: false,
       template: path.resolve(SRC_PATH, './index.html'),
     }),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja/),
+    // new BundleAnalyzerPlugin(),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],

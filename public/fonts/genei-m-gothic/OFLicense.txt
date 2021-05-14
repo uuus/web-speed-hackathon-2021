@@ -1,8 +1,10 @@
-Copyright (c) 2020, „Åä„Åü„ÇÇ„Çì (http://okoneya.jp/font/), with Reserved Font Name 'Ê∫êÊöé'.
+Copyright (c) 2020-2021, Ç®ÇΩÇ‡ÇÒ (http://okoneya.jp/font/), with Reserved Font Name 'åπùÛ'.
 
 	Copyright (c) 2017, M+ FONTS PROJECT.
 	Copyright (c) 2014, Indian Type Foundry (info@indiantypefoundry.com).
-	Copyright (c) 2017, Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'.
+	Copyright (c) 2017, Adobe Systems Incorporated (http://www.adobe.com/)
+                          , with Reserved Font Name 'Source'.
+	Copyright (c) 2015, é©â∆êªÉtÉHÉìÉgçHñ[ by MM (http://jikasei.me/font/mgenplus/).
 	Copyright (c) 2015, Google Inc.
 
 
