@@ -11,6 +11,7 @@ const DIST_PATH = path.resolve(__dirname, '../dist');
 
 const TerserPlugin = require("terser-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 
 /** @type {import('webpack').Configuration} */
 const config = {
@@ -88,9 +89,10 @@ const config = {
       filename: 'styles/[name].css',
     }),
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: 'head',
       template: path.resolve(SRC_PATH, './index.html'),
     }),
+    new HTMLInlineCSSWebpackPlugin(),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja/),
     // new BundleAnalyzerPlugin(),
   ],
