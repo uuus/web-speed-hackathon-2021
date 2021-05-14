@@ -10,6 +10,8 @@ const UPLOAD_PATH = path.resolve(__dirname, '../upload');
 const DIST_PATH = path.resolve(__dirname, '../dist');
 
 const TerserPlugin = require("terser-webpack-plugin");
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 
@@ -50,6 +52,14 @@ const config = {
           { loader: 'postcss-loader' },
         ],
       },
+      {
+        test: /\.(jpe?g|png)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+          outputPath: path.resolve(__dirname, '../public/images')
+        }
+      }
     ],
   },
   optimization: {
@@ -91,6 +101,21 @@ const config = {
     new HtmlWebpackPlugin({
       inject: 'head',
       template: path.resolve(SRC_PATH, './index.html'),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{
+        from: 'src/images/',
+        to: path.resolve(__dirname, '../public/images')
+      }]
+    }),
+    new ImageminWebpWebpackPlugin({
+      config: [{
+        test: /\.(jpe?g|png)$/i,
+        options: {
+          quality: 60
+        },
+      }],
+      detailedLogs: true
     }),
     new HTMLInlineCSSWebpackPlugin(),
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ja/),
